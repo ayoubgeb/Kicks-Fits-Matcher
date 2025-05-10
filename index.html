@@ -145,12 +145,23 @@
       const styleText = `You selected <strong>${color} sneakers</strong>. Try pairing them with a <strong>${shirt}</strong> and <strong>${bottom}</strong> for a <strong>${season}</strong> and <strong>${occasion}</strong> look. Skin tone: <strong>${skintone}</strong>, Hair: <strong>${hair}</strong>.`;
       document.getElementById("result").innerHTML = styleText;
 
-      // Sample image logic — you can later add more
       const img = document.getElementById("outfitImg");
-      if (color === "pink" && bottom === "skirt") {
-        img.src = "https://example.com/pink-sneaker-skirt-look.jpg";
+
+      const imageMap = {
+        "pink-skirt": "https://example.com/pink-sneaker-skirt-look.jpg",
+        "white-pants": "https://example.com/white-sneaker-pants-look.jpg",
+        "black-shorts": "https://example.com/black-sneaker-shorts-look.jpg",
+        "red-pants": "https://example.com/red-sneaker-pants-look.jpg",
+        "blue-skirt": "https://example.com/blue-sneaker-skirt-look.jpg",
+        "green-shorts": "https://example.com/green-sneaker-shorts-look.jpg"
+      };
+
+      const key = `${color}-${bottom}`;
+
+      if (imageMap[key]) {
+        img.src = imageMap[key];
         img.style.display = "block";
-        img.alt = "Suggested outfit image";
+        img.alt = `Suggested outfit for ${color} sneakers and ${bottom}`;
       } else {
         img.style.display = "none";
       }
