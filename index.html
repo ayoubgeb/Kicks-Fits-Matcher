@@ -1,99 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sneaker Style Matcher</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneaker Styling Tool</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; max-width: 600px; }
-    label { display: block; margin-top: 10px; font-weight: bold; }
-    select, input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; }
-    button { margin-top: 15px; padding: 10px 20px; background-color: #000; color: #fff; border: none; cursor: pointer; }
-    #result { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #e91e63;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    label, select {
+      display: block;
+      width: 100%;
+      margin: 1rem 0 0.5rem;
+      text-align: left;
+    }
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .result {
+      margin-top: 2rem;
+      background: #e0f7fa;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .affiliate-links {
+      margin-top: 2rem;
+    }
+    .affiliate-links a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .outfit-img {
+      margin-top: 2rem;
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
-  <h2>Sneaker Style Suggestion Tool</h2>
+  <div class="container">
+    <h1>👟 Sneaker Styling Tool</h1>
 
-  <label for="sneakerColor">Sneaker Color:</label>
-  <select id="sneakerColor">
-    <option value="white">White</option>
-    <option value="black">Black</option>
-    <option value="pink">Pink</option>
-    <option value="red">Red</option>
-    <option value="beige">Beige</option>
-  </select>
+    <label for="sneakerColor">Sneaker Color:</label>
+    <select id="sneakerColor">
+      <option value="white">White</option>
+      <option value="black">Black</option>
+      <option value="pink">Pink</option>
+      <option value="blue">Blue</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="grey">Grey</option>
+      <option value="beige">Beige</option>
+    </select>
 
-  <label for="topType">Top Type:</label>
-  <select id="topType">
-    <option value="tshirt">T-Shirt</option>
-    <option value="shirt">Shirt</option>
-    <option value="longsleeve">Long Sleeve</option>
-    <option value="shortsleeve">Short Sleeve</option>
-  </select>
+    <label for="shirt">Top Type:</label>
+    <select id="shirt">
+      <option value="tshirt">T-Shirt</option>
+      <option value="shirt">Shirt</option>
+      <option value="tanktop">Tank Top</option>
+      <option value="sweater">Sweater</option>
+      <option value="suit">Suit Jacket</option>
+    </select>
 
-  <label for="topColor">Top Color:</label>
-  <input type="text" id="topColor" placeholder="e.g., blue, grey">
+    <label for="bottom">Bottom Type:</label>
+    <select id="bottom">
+      <option value="pants">Pants</option>
+      <option value="shorts">Shorts</option>
+      <option value="skirt">Skirt</option>
+    </select>
 
-  <label for="bottomType">Bottom Type:</label>
-  <select id="bottomType">
-    <option value="pants">Pants</option>
-    <option value="skirt">Skirt</option>
-    <option value="shorts">Shorts</option>
-  </select>
+    <label for="season">Season:</label>
+    <select id="season">
+      <option value="summer">Summer</option>
+      <option value="winter">Winter</option>
+    </select>
 
-  <label for="bottomColor">Bottom Color:</label>
-  <input type="text" id="bottomColor" placeholder="e.g., black, beige">
+    <label for="occasion">Occasion:</label>
+    <select id="occasion">
+      <option value="casual">Casual</option>
+      <option value="smart">Smart Wear</option>
+      <option value="night">Nightwear</option>
+    </select>
 
-  <label for="season">Season:</label>
-  <select id="season">
-    <option value="summer">Summer</option>
-    <option value="winter">Winter</option>
-  </select>
+    <label for="skintone">Skin Tone:</label>
+    <select id="skintone">
+      <option value="cool">Cool</option>
+      <option value="neutral">Neutral</option>
+      <option value="warm">Warm</option>
+    </select>
 
-  <label for="occasion">Occasion:</label>
-  <select id="occasion">
-    <option value="casual">Casual</option>
-    <option value="smart">Smart</option>
-    <option value="nightwear">Nightwear</option>
-  </select>
+    <label for="hair">Hair Color:</label>
+    <select id="hair">
+      <option value="black">Black</option>
+      <option value="blonde">Blonde</option>
+      <option value="brown">Brown</option>
+      <option value="red">Red</option>
+      <option value="grey">Grey</option>
+    </select>
 
-  <label for="skinTone">Skin Tone:</label>
-  <select id="skinTone">
-    <option value="cool">Cool</option>
-    <option value="warm">Warm</option>
-    <option value="neutral">Neutral</option>
-  </select>
+    <button onclick="generateStyle()">✨ Get Style Recommendation</button>
 
-  <button onclick="generateStyle()">Get Styling Suggestion</button>
+    <div class="result" id="result">Your results will appear here.</div>
 
-  <div id="result"></div>
+    <img id="outfitImg" class="outfit-img" src="" alt="" style="display: none;" />
+
+    <div class="affiliate-links">
+      <p>👟 Love your sneaker style?</p>
+      <p>
+        <strong>See on Amazon 🌍</strong> —
+        <a href="https://amzn.to/453IyCL" target="_blank" style="color: #e91e63;">Click here</a><br />
+        <strong>If you're living in Denmark 🇩🇰</strong> —
+        <a href="https://direct.me/l/mLxP" target="_blank" style="color: #2196f3;">Click here</a>
+      </p>
+    </div>
+  </div>
 
   <script>
     function generateStyle() {
-      const sneakerColor = document.getElementById('sneakerColor').value;
-      const topType = document.getElementById('topType').value;
-      const topColor = document.getElementById('topColor').value;
-      const bottomType = document.getElementById('bottomType').value;
-      const bottomColor = document.getElementById('bottomColor').value;
-      const season = document.getElementById('season').value;
-      const occasion = document.getElementById('occasion').value;
-      const skinTone = document.getElementById('skinTone').value;
+      const color = document.getElementById("sneakerColor").value;
+      const shirt = document.getElementById("shirt").value;
+      const bottom = document.getElementById("bottom").value;
+      const season = document.getElementById("season").value;
+      const occasion = document.getElementById("occasion").value;
+      const skintone = document.getElementById("skintone").value;
+      const hair = document.getElementById("hair").value;
 
-      let suggestion = `👟 With your <b>${sneakerColor}</b> sneakers, try a <b>${topColor} ${topType}</b> and <b>${bottomColor} ${bottomType}</b>.<br>`;
+      const styleText = `You selected <strong>${color} sneakers</strong>. Try pairing them with a <strong>${shirt}</strong> and <strong>${bottom}</strong> for a <strong>${season}</strong> and <strong>${occasion}</strong> look. Skin tone: <strong>${skintone}</strong>, Hair: <strong>${hair}</strong>.`;
+      document.getElementById("result").innerHTML = styleText;
 
-      // Add basic logic for styling
-      if (season === "summer") suggestion += "☀️ Light fabrics and pastel shades work well in summer.<br>";
-      if (season === "winter") suggestion += "❄️ Add layers like jackets or scarves in darker tones.<br>";
-
-      if (occasion === "smart") suggestion += "💼 Match with clean lines and neutral tones for a polished look.<br>";
-      if (occasion === "casual") suggestion += "🎒 Go comfy with jeans or casual trousers.<br>";
-
-      if (skinTone === "warm") suggestion += "🌻 Earthy colors like olive, mustard, or coral will pop on warm skin.<br>";
-      if (skinTone === "cool") suggestion += "❄️ Cool tones like blue, silver, or lavender enhance cool skin tones.<br>";
-      if (skinTone === "neutral") suggestion += "🎨 You’re lucky! Almost all colors suit you, try experimenting!<br>";
-
-      document.getElementById('result').innerHTML = suggestion;
+      // Sample image logic — you can later add more
+      const img = document.getElementById("outfitImg");
+      if (color === "pink" && bottom === "skirt") {
+        img.src = "https://example.com/pink-sneaker-skirt-look.jpg";
+        img.style.display = "block";
+        img.alt = "Suggested outfit image";
+      } else {
+        img.style.display = "none";
+      }
     }
   </script>
 </body>
