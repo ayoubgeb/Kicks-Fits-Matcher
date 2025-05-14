@@ -1,263 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Sneaker Styling Tool</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-      margin: 0;
-      padding: 2rem;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h2 {
       text-align: center;
     }
-
-    h1 {
-      color: #e91e63;
-    }
-
-    .container {
-      max-width: 1000px;
+    .tool-wrapper {
+      max-width: 600px;
       margin: auto;
       background: white;
-      padding: 2rem;
+      padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
-
-    .select-box {
-      background-color: #ec407a;
-      color: white;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    .form-group {
+      margin-bottom: 15px;
     }
-
-    .select-box label {
+    label {
       font-weight: bold;
-      display: block;
-      margin-bottom: 0.5rem;
-      text-align: left;
     }
-
-    .select-box select {
+    input[type="text"],
+    select {
       width: 100%;
-      padding: 0.6rem;
-      border: none;
+      padding: 8px;
       border-radius: 6px;
-      font-size: 1rem;
+      border: 1px solid #ccc;
     }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .half-box {
-      flex: 1 1 45%;
-      background-color: #2196f3;
-      color: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .half-box label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 0.5rem;
-      text-align: left;
-    }
-
-    .half-box select {
+    textarea {
       width: 100%;
-      padding: 0.6rem;
-      border: none;
+      height: 80px;
       border-radius: 6px;
-      font-size: 1rem;
+      border: 1px solid #ccc;
+      padding: 8px;
     }
-
     button {
-      margin-top: 1.5rem;
-      background: #e91e63;
-      color: white;
+      padding: 10px 20px;
       border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s;
+      margin-right: 10px;
     }
-
-    button:hover {
-      background: #d81b60;
-    }
-
-    .result {
-      margin-top: 2rem;
-      background: #ec407a;
+    .btn-save {
+      background-color: #4CAF50;
       color: white;
-      padding: 1.2rem;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
-
-    .outfit-img {
-      margin-top: 2rem;
-      max-width: 100%;
-      border-radius: 10px;
+    .btn-reset {
+      background-color: #f44336;
+      color: white;
     }
-
-    .affiliate-links {
-      margin-top: 2rem;
-      font-size: 1rem;
-    }
-
-    .affiliate-links a {
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .half-box {
-        flex: 1 1 100%;
-      }
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e6f7ff;
+      border-left: 4px solid #1890ff;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>👟 Sneaker Styling Tool</h1>
 
-    <div class="select-box">
-      <label for="sneakerColor">Sneaker Color:</label>
-      <select id="sneakerColor">
-        <option value="white">White</option>
-        <option value="black">Black</option>
-        <option value="pink">Pink</option>
-        <option value="blue">Blue</option>
-        <option value="red">Red</option>
-        <option value="green">Green</option>
-        <option value="grey">Grey</option>
-        <option value="beige">Beige</option>
+  <div class="tool-wrapper">
+    <h2>👟 Sneaker Styling Tool</h2>
+
+    <!-- Sneaker Color -->
+    <div class="form-group">
+      <label for="sneakerColor">Sneaker Color</label>
+      <input type="text" id="sneakerColor" placeholder="e.g., Black with white soles">
+    </div>
+
+    <!-- First set of 3 boxes -->
+    <div class="form-group">
+      <label for="outfitOccasion">Outfit Occasion</label>
+      <input type="text" id="outfitOccasion" placeholder="e.g., Casual, Formal, Sports">
+    </div>
+    <div class="form-group">
+      <label for="preferredStyle">Preferred Style</label>
+      <input type="text" id="preferredStyle" placeholder="e.g., Streetwear, Minimalist">
+    </div>
+    <div class="form-group">
+      <label for="colorContrast">Color Contrast Preference</label>
+      <input type="text" id="colorContrast" placeholder="e.g., Bold, Neutral, Matching">
+    </div>
+
+    <!-- Second set of 3 boxes -->
+    <div class="form-group">
+      <label for="clothingItem">Clothing Item to Match</label>
+      <input type="text" id="clothingItem" placeholder="e.g., Jeans, Hoodie, Blazer">
+    </div>
+    <div class="form-group">
+      <label for="season">Season</label>
+      <select id="season">
+        <option value="">Select</option>
+        <option>Spring</option>
+        <option>Summer</option>
+        <option>Fall</option>
+        <option>Winter</option>
       </select>
     </div>
-
-    <div class="row">
-      <div class="half-box">
-        <label for="shirt">Top Type:</label>
-        <select id="shirt">
-          <option value="tshirt">T-Shirt</option>
-          <option value="shirt">Shirt</option>
-          <option value="tanktop">Tank Top</option>
-          <option value="sweater">Sweater</option>
-          <option value="suit">Suit Jacket</option>
-        </select>
-      </div>
-
-      <div class="half-box">
-        <label for="bottom">Bottom Type:</label>
-        <select id="bottom">
-          <option value="pants">Pants</option>
-          <option value="shorts">Shorts</option>
-          <option value="skirt">Skirt</option>
-        </select>
-      </div>
-
-      <div class="half-box">
-        <label for="season">Season:</label>
-        <select id="season">
-          <option value="summer">Summer</option>
-          <option value="winter">Winter</option>
-        </select>
-      </div>
-
-      <div class="half-box">
-        <label for="occasion">Occasion:</label>
-        <select id="occasion">
-          <option value="casual">Casual</option>
-          <option value="smart">Smart Wear</option>
-          <option value="night">Nightwear</option>
-        </select>
-      </div>
-
-      <div class="half-box">
-        <label for="skintone">Skin Tone:</label>
-        <select id="skintone">
-          <option value="cool">Cool</option>
-          <option value="neutral">Neutral</option>
-          <option value="warm">Warm</option>
-        </select>
-      </div>
-
-      <div class="half-box">
-        <label for="hair">Hair Color:</label>
-        <select id="hair">
-          <option value="black">Black</option>
-          <option value="blonde">Blonde</option>
-          <option value="brown">Brown</option>
-          <option value="red">Red</option>
-          <option value="grey">Grey</option>
-        </select>
-      </div>
+    <div class="form-group">
+      <label for="accessory">Matching Accessory</label>
+      <input type="text" id="accessory" placeholder="e.g., Watch, Hat, Sunglasses">
     </div>
 
-    <button onclick="generateStyle()">✨ Get Style Recommendation</button>
-
-    <div class="result" id="result">Your results will appear here.</div>
-
-    <img id="outfitImg" class="outfit-img" src="" alt="" style="display: none;" />
-
-    <div class="affiliate-links">
-      <p>👟 Love your sneaker style?</p>
-      <p>
-        <strong>See on Amazon 🌍</strong> — 
-        <a href="https://amzn.to/453IyCL" target="_blank" style="color: #e91e63;">Click here</a><br />
-        <strong>If you're living in Denmark 🇩🇰</strong> — 
-        <a href="https://direct.me/l/mLxP" target="_blank" style="color: #2196f3;">Click here</a>
-      </p>
+    <!-- Result Box -->
+    <div class="form-group">
+      <label for="result">Styling Suggestion</label>
+      <textarea id="result" readonly></textarea>
     </div>
+
+    <!-- Buttons -->
+    <button class="btn-save" onclick="generateSuggestion()">Save Styling</button>
+    <button class="btn-reset" onclick="resetForm()">Reset</button>
+
+    <!-- Output Area -->
+    <div class="output" id="outputArea"></div>
   </div>
 
   <script>
-    function generateStyle() {
-      const color = document.getElementById("sneakerColor").value;
-      const shirt = document.getElementById("shirt").value;
-      const bottom = document.getElementById("bottom").value;
-      const season = document.getElementById("season").value;
-      const occasion = document.getElementById("occasion").value;
-      const skintone = document.getElementById("skintone").value;
-      const hair = document.getElementById("hair").value;
+    function generateSuggestion() {
+      const sneakerColor = document.getElementById('sneakerColor').value;
+      const occasion = document.getElementById('outfitOccasion').value;
+      const style = document.getElementById('preferredStyle').value;
+      const contrast = document.getElementById('colorContrast').value;
+      const clothing = document.getElementById('clothingItem').value;
+      const season = document.getElementById('season').value;
+      const accessory = document.getElementById('accessory').value;
 
-      const styleText = `You selected <strong>${color} sneakers</strong>. Try pairing them with a <strong>${shirt}</strong> and <strong>${bottom}</strong> for a <strong>${season}</strong> and <strong>${occasion}</strong> look. Skin tone: <strong>${skintone}</strong>, Hair: <strong>${hair}</strong>.`;
-      document.getElementById("result").innerHTML = styleText;
+      const suggestion = `Your ${sneakerColor} sneakers are perfect for a ${occasion.toLowerCase()} outfit. Combine them with ${clothing} to highlight your ${style.toLowerCase()} vibe. Since you prefer a ${contrast.toLowerCase()} look, aim for complementary shades. Add a touch of flair with a matching ${accessory}. Best for the ${season} season.`;
 
-      const img = document.getElementById("outfitImg");
+      document.getElementById('result').value = suggestion;
+      document.getElementById('outputArea').innerText = "Styling saved: \n" + suggestion;
+    }
 
-      const imageMap = {
-        "pink-skirt": "https://example.com/pink-sneaker-skirt-look.jpg",
-        "white-pants": "https://example.com/white-sneaker-pants-look.jpg",
-        "black-shorts": "https://example.com/black-sneaker-shorts-look.jpg",
-        "red-pants": "https://example.com/red-sneaker-pants-look.jpg",
-        "blue-skirt": "https://example.com/blue-sneaker-skirt-look.jpg",
-        "green-shorts": "https://example.com/green-sneaker-shorts-look.jpg"
-      };
-
-      const key = `${color}-${bottom}`;
-      if (imageMap[key]) {
-        img.src = imageMap[key];
-        img.alt = `Suggested outfit for ${color} sneakers and ${bottom}`;
-        img.style.display = "block";
-      } else {
-        img.style.display = "none";
-      }
+    function resetForm() {
+      document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+      document.getElementById('outputArea').innerText = '';
     }
   </script>
+
 </body>
 </html>
