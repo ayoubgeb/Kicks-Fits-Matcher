@@ -133,7 +133,7 @@
       const season = document.getElementById('season').value;
       const accessory = document.getElementById('accessory').value;
 
-      const suggestion = Your ${sneakerColor} sneakers are perfect for a ${occasion.toLowerCase()} outfit. Combine them with ${clothing} to highlight your ${style.toLowerCase()} vibe. Since you prefer a ${contrast.toLowerCase()} look, aim for complementary shades. Add a touch of flair with a matching ${accessory}. Best for the ${season} season.;
+      const suggestion = `Your ${sneakerColor} sneakers are perfect for a ${occasion.toLowerCase()} outfit. Combine them with ${clothing} to highlight your ${style.toLowerCase()} vibe. Since you prefer a ${contrast.toLowerCase()} look, aim for complementary shades. Add a touch of flair with a matching ${accessory}. Best for the ${season} season.`;
 
       document.getElementById('result').value = suggestion;
       document.getElementById('outputArea').innerText = "Styling saved: \n" + suggestion;
