@@ -7,75 +7,111 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #f5f5f5;
       color: #333;
       margin: 0;
       padding: 2rem;
       text-align: center;
     }
+
     h1 {
       color: #e91e63;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       background: white;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+    .select-box {
+      background-color: #ec407a;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .select-box label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
       text-align: left;
     }
 
-    .form-box {
-      background-color: #e3f2fd;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    label {
-      font-weight: bold;
-      margin-bottom: 0.3rem;
-      display: block;
-      font-size: 1rem;
-    }
-
-    select {
+    .select-box select {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 6px;
       font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .half-box {
+      flex: 1 1 45%;
+      background-color: #2196f3;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .half-box label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+      text-align: left;
+    }
+
+    .half-box select {
+      width: 100%;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
     }
 
     button {
       margin-top: 1.5rem;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #2196f3;
+      background: #e91e63;
       color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #1976d2;
+      background: #d81b60;
     }
 
     .result {
       margin-top: 2rem;
-      background: #e0f7fa;
-      padding: 1rem;
-      border-radius: 8px;
+      background: #ec407a;
+      color: white;
+      padding: 1.2rem;
+      border-radius: 12px;
       font-size: 1.1rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .outfit-img {
+      margin-top: 2rem;
+      max-width: 100%;
+      border-radius: 10px;
     }
 
     .affiliate-links {
@@ -84,14 +120,14 @@
     }
 
     .affiliate-links a {
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
     }
 
-    .outfit-img {
-      margin-top: 2rem;
-      max-width: 100%;
-      border-radius: 10px;
+    @media (max-width: 768px) {
+      .half-box {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
@@ -99,22 +135,22 @@
   <div class="container">
     <h1>👟 Sneaker Styling Tool</h1>
 
-    <div class="form-grid">
-      <div class="form-box">
-        <label for="sneakerColor">Sneaker Color:</label>
-        <select id="sneakerColor">
-          <option value="white">White</option>
-          <option value="black">Black</option>
-          <option value="pink">Pink</option>
-          <option value="blue">Blue</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="grey">Grey</option>
-          <option value="beige">Beige</option>
-        </select>
-      </div>
+    <div class="select-box">
+      <label for="sneakerColor">Sneaker Color:</label>
+      <select id="sneakerColor">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="pink">Pink</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="grey">Grey</option>
+        <option value="beige">Beige</option>
+      </select>
+    </div>
 
-      <div class="form-box">
+    <div class="row">
+      <div class="half-box">
         <label for="shirt">Top Type:</label>
         <select id="shirt">
           <option value="tshirt">T-Shirt</option>
@@ -125,7 +161,7 @@
         </select>
       </div>
 
-      <div class="form-box">
+      <div class="half-box">
         <label for="bottom">Bottom Type:</label>
         <select id="bottom">
           <option value="pants">Pants</option>
@@ -134,7 +170,7 @@
         </select>
       </div>
 
-      <div class="form-box">
+      <div class="half-box">
         <label for="season">Season:</label>
         <select id="season">
           <option value="summer">Summer</option>
@@ -142,7 +178,7 @@
         </select>
       </div>
 
-      <div class="form-box">
+      <div class="half-box">
         <label for="occasion">Occasion:</label>
         <select id="occasion">
           <option value="casual">Casual</option>
@@ -151,7 +187,7 @@
         </select>
       </div>
 
-      <div class="form-box">
+      <div class="half-box">
         <label for="skintone">Skin Tone:</label>
         <select id="skintone">
           <option value="cool">Cool</option>
@@ -160,7 +196,7 @@
         </select>
       </div>
 
-      <div class="form-box">
+      <div class="half-box">
         <label for="hair">Hair Color:</label>
         <select id="hair">
           <option value="black">Black</option>
@@ -181,9 +217,9 @@
     <div class="affiliate-links">
       <p>👟 Love your sneaker style?</p>
       <p>
-        <strong>See on Amazon 🌍</strong> —
+        <strong>See on Amazon 🌍</strong> — 
         <a href="https://amzn.to/453IyCL" target="_blank" style="color: #e91e63;">Click here</a><br />
-        <strong>If you're living in Denmark 🇩🇰</strong> —
+        <strong>If you're living in Denmark 🇩🇰</strong> — 
         <a href="https://direct.me/l/mLxP" target="_blank" style="color: #2196f3;">Click here</a>
       </p>
     </div>
@@ -214,11 +250,10 @@
       };
 
       const key = `${color}-${bottom}`;
-
       if (imageMap[key]) {
         img.src = imageMap[key];
-        img.style.display = "block";
         img.alt = `Suggested outfit for ${color} sneakers and ${bottom}`;
+        img.style.display = "block";
       } else {
         img.style.display = "none";
       }
