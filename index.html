@@ -1,159 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sneaker Styling Tool</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      background-color: #fff0f5; /* Light pink background */
-    }
-    h2 {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
       text-align: center;
-      color: #d63384;
     }
-    .tool-wrapper {
-      max-width: 600px;
+    h1 {
+      color: #e91e63;
+    }
+    .container {
+      max-width: 900px;
       margin: auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(214, 51, 132, 0.2);
-      border: 2px solid #ffb6c1;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
-    .form-group {
-      margin-bottom: 15px;
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      text-align: left;
     }
+
+    .form-box {
+      background-color: #e3f2fd;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
     label {
       font-weight: bold;
-      color: #d63384;
+      margin-bottom: 0.3rem;
+      display: block;
+      font-size: 1rem;
     }
-    input[type="text"],
-    select,
-    textarea {
+
+    select {
       width: 100%;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid #ffc0cb;
-      font-size: 14px;
-      background-color: #fffafc;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
-    textarea {
-      height: 80px;
-      resize: none;
-    }
+
     button {
-      padding: 10px 20px;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 6px;
+      background-color: #2196f3;
+      color: white;
       cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+
+    .result {
+      margin-top: 2rem;
+      background: #e0f7fa;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+    }
+
+    .affiliate-links {
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+
+    .affiliate-links a {
+      text-decoration: none;
       font-weight: bold;
-      font-size: 14px;
     }
-    .btn-save {
-      background-color: #ff69b4;
-      color: white;
-    }
-    .btn-reset {
-      background-color: #ff6f91;
-      color: white;
-    }
-    .btn-save:hover {
-      background-color: #ff1493;
-    }
-    .btn-reset:hover {
-      background-color: #e75480;
-    }
-    .output {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #ffe4e1;
-      border-left: 5px solid #ff69b4;
-      color: #5a2a4a;
-      white-space: pre-wrap;
+
+    .outfit-img {
+      margin-top: 2rem;
+      max-width: 100%;
       border-radius: 10px;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>👟 Sneaker Styling Tool</h1>
 
-  <div class="tool-wrapper">
-    <h2>👟 Sneaker Styling Tool</h2>
+    <div class="form-grid">
+      <div class="form-box">
+        <label for="sneakerColor">Sneaker Color:</label>
+        <select id="sneakerColor">
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="pink">Pink</option>
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="grey">Grey</option>
+          <option value="beige">Beige</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="sneakerColor">Sneaker Color</label>
-      <input type="text" id="sneakerColor" placeholder="e.g., Black with white soles">
+      <div class="form-box">
+        <label for="shirt">Top Type:</label>
+        <select id="shirt">
+          <option value="tshirt">T-Shirt</option>
+          <option value="shirt">Shirt</option>
+          <option value="tanktop">Tank Top</option>
+          <option value="sweater">Sweater</option>
+          <option value="suit">Suit Jacket</option>
+        </select>
+      </div>
+
+      <div class="form-box">
+        <label for="bottom">Bottom Type:</label>
+        <select id="bottom">
+          <option value="pants">Pants</option>
+          <option value="shorts">Shorts</option>
+          <option value="skirt">Skirt</option>
+        </select>
+      </div>
+
+      <div class="form-box">
+        <label for="season">Season:</label>
+        <select id="season">
+          <option value="summer">Summer</option>
+          <option value="winter">Winter</option>
+        </select>
+      </div>
+
+      <div class="form-box">
+        <label for="occasion">Occasion:</label>
+        <select id="occasion">
+          <option value="casual">Casual</option>
+          <option value="smart">Smart Wear</option>
+          <option value="night">Nightwear</option>
+        </select>
+      </div>
+
+      <div class="form-box">
+        <label for="skintone">Skin Tone:</label>
+        <select id="skintone">
+          <option value="cool">Cool</option>
+          <option value="neutral">Neutral</option>
+          <option value="warm">Warm</option>
+        </select>
+      </div>
+
+      <div class="form-box">
+        <label for="hair">Hair Color:</label>
+        <select id="hair">
+          <option value="black">Black</option>
+          <option value="blonde">Blonde</option>
+          <option value="brown">Brown</option>
+          <option value="red">Red</option>
+          <option value="grey">Grey</option>
+        </select>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="outfitOccasion">Outfit Occasion</label>
-      <input type="text" id="outfitOccasion" placeholder="e.g., Casual, Formal, Sports">
+    <button onclick="generateStyle()">✨ Get Style Recommendation</button>
+
+    <div class="result" id="result">Your results will appear here.</div>
+
+    <img id="outfitImg" class="outfit-img" src="" alt="" style="display: none;" />
+
+    <div class="affiliate-links">
+      <p>👟 Love your sneaker style?</p>
+      <p>
+        <strong>See on Amazon 🌍</strong> —
+        <a href="https://amzn.to/453IyCL" target="_blank" style="color: #e91e63;">Click here</a><br />
+        <strong>If you're living in Denmark 🇩🇰</strong> —
+        <a href="https://direct.me/l/mLxP" target="_blank" style="color: #2196f3;">Click here</a>
+      </p>
     </div>
-
-    <div class="form-group">
-      <label for="preferredStyle">Preferred Style</label>
-      <input type="text" id="preferredStyle" placeholder="e.g., Streetwear, Minimalist">
-    </div>
-
-    <div class="form-group">
-      <label for="colorContrast">Color Contrast Preference</label>
-      <input type="text" id="colorContrast" placeholder="e.g., Bold, Neutral, Matching">
-    </div>
-
-    <div class="form-group">
-      <label for="clothingItem">Clothing Item to Match</label>
-      <input type="text" id="clothingItem" placeholder="e.g., Jeans, Hoodie, Blazer">
-    </div>
-
-    <div class="form-group">
-      <label for="season">Season</label>
-      <select id="season">
-        <option value="">Select</option>
-        <option>Spring</option>
-        <option>Summer</option>
-        <option>Fall</option>
-        <option>Winter</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="accessory">Matching Accessory</label>
-      <input type="text" id="accessory" placeholder="e.g., Watch, Hat, Sunglasses">
-    </div>
-
-    <div class="form-group">
-      <label for="result">Styling Suggestion</label>
-      <textarea id="result" readonly></textarea>
-    </div>
-
-    <button class="btn-save" onclick="generateSuggestion()">Save Styling</button>
-    <button class="btn-reset" onclick="resetForm()">Reset</button>
-
-    <div class="output" id="outputArea"></div>
   </div>
 
   <script>
-    function generateSuggestion() {
-      const sneakerColor = document.getElementById('sneakerColor').value;
-      const occasion = document.getElementById('outfitOccasion').value;
-      const style = document.getElementById('preferredStyle').value;
-      const contrast = document.getElementById('colorContrast').value;
-      const clothing = document.getElementById('clothingItem').value;
-      const season = document.getElementById('season').value;
-      const accessory = document.getElementById('accessory').value;
+    function generateStyle() {
+      const color = document.getElementById("sneakerColor").value;
+      const shirt = document.getElementById("shirt").value;
+      const bottom = document.getElementById("bottom").value;
+      const season = document.getElementById("season").value;
+      const occasion = document.getElementById("occasion").value;
+      const skintone = document.getElementById("skintone").value;
+      const hair = document.getElementById("hair").value;
 
-      const suggestion = `Your ${sneakerColor} sneakers are perfect for a ${occasion.toLowerCase()} outfit. Combine them with ${clothing} to highlight your ${style.toLowerCase()} vibe. Since you prefer a ${contrast.toLowerCase()} look, aim for complementary shades. Add a touch of flair with a matching ${accessory}. Best for the ${season} season.`;
+      const styleText = `You selected <strong>${color} sneakers</strong>. Try pairing them with a <strong>${shirt}</strong> and <strong>${bottom}</strong> for a <strong>${season}</strong> and <strong>${occasion}</strong> look. Skin tone: <strong>${skintone}</strong>, Hair: <strong>${hair}</strong>.`;
+      document.getElementById("result").innerHTML = styleText;
 
-      document.getElementById('result').value = suggestion;
-      document.getElementById('outputArea').innerText = "Styling saved: \n" + suggestion;
-    }
+      const img = document.getElementById("outfitImg");
 
-    function resetForm() {
-      document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
-      document.getElementById('outputArea').innerText = '';
+      const imageMap = {
+        "pink-skirt": "https://example.com/pink-sneaker-skirt-look.jpg",
+        "white-pants": "https://example.com/white-sneaker-pants-look.jpg",
+        "black-shorts": "https://example.com/black-sneaker-shorts-look.jpg",
+        "red-pants": "https://example.com/red-sneaker-pants-look.jpg",
+        "blue-skirt": "https://example.com/blue-sneaker-skirt-look.jpg",
+        "green-shorts": "https://example.com/green-sneaker-shorts-look.jpg"
+      };
+
+      const key = `${color}-${bottom}`;
+
+      if (imageMap[key]) {
+        img.src = imageMap[key];
+        img.style.display = "block";
+        img.alt = `Suggested outfit for ${color} sneakers and ${bottom}`;
+      } else {
+        img.style.display = "none";
+      }
     }
   </script>
-
 </body>
 </html>
