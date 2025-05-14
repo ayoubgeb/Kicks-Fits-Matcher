@@ -17,40 +17,81 @@
       color: #e91e63;
     }
     .container {
-      max-width: 700px;
+      max-width: 900px;
       margin: auto;
       background: white;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
-    label, select {
-      display: block;
-      width: 100%;
-      margin: 1rem 0 0.5rem;
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
       text-align: left;
     }
+
+    .form-box {
+      background-color: #e3f2fd;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      display: block;
+      font-size: 1rem;
+    }
+
     select {
+      width: 100%;
       padding: 0.5rem;
+      font-size: 1rem;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #2196f3;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+
     .result {
       margin-top: 2rem;
       background: #e0f7fa;
       padding: 1rem;
       border-radius: 8px;
+      font-size: 1.1rem;
     }
+
     .affiliate-links {
       margin-top: 2rem;
+      font-size: 1rem;
     }
+
     .affiliate-links a {
       text-decoration: none;
       font-weight: bold;
     }
+
     .outfit-img {
       margin-top: 2rem;
       max-width: 100%;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -58,62 +99,78 @@
   <div class="container">
     <h1>👟 Sneaker Styling Tool</h1>
 
-    <label for="sneakerColor">Sneaker Color:</label>
-    <select id="sneakerColor">
-      <option value="white">White</option>
-      <option value="black">Black</option>
-      <option value="pink">Pink</option>
-      <option value="blue">Blue</option>
-      <option value="red">Red</option>
-      <option value="green">Green</option>
-      <option value="grey">Grey</option>
-      <option value="beige">Beige</option>
-    </select>
+    <div class="form-grid">
+      <div class="form-box">
+        <label for="sneakerColor">Sneaker Color:</label>
+        <select id="sneakerColor">
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="pink">Pink</option>
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="grey">Grey</option>
+          <option value="beige">Beige</option>
+        </select>
+      </div>
 
-    <label for="shirt">Top Type:</label>
-    <select id="shirt">
-      <option value="tshirt">T-Shirt</option>
-      <option value="shirt">Shirt</option>
-      <option value="tanktop">Tank Top</option>
-      <option value="sweater">Sweater</option>
-      <option value="suit">Suit Jacket</option>
-    </select>
+      <div class="form-box">
+        <label for="shirt">Top Type:</label>
+        <select id="shirt">
+          <option value="tshirt">T-Shirt</option>
+          <option value="shirt">Shirt</option>
+          <option value="tanktop">Tank Top</option>
+          <option value="sweater">Sweater</option>
+          <option value="suit">Suit Jacket</option>
+        </select>
+      </div>
 
-    <label for="bottom">Bottom Type:</label>
-    <select id="bottom">
-      <option value="pants">Pants</option>
-      <option value="shorts">Shorts</option>
-      <option value="skirt">Skirt</option>
-    </select>
+      <div class="form-box">
+        <label for="bottom">Bottom Type:</label>
+        <select id="bottom">
+          <option value="pants">Pants</option>
+          <option value="shorts">Shorts</option>
+          <option value="skirt">Skirt</option>
+        </select>
+      </div>
 
-    <label for="season">Season:</label>
-    <select id="season">
-      <option value="summer">Summer</option>
-      <option value="winter">Winter</option>
-    </select>
+      <div class="form-box">
+        <label for="season">Season:</label>
+        <select id="season">
+          <option value="summer">Summer</option>
+          <option value="winter">Winter</option>
+        </select>
+      </div>
 
-    <label for="occasion">Occasion:</label>
-    <select id="occasion">
-      <option value="casual">Casual</option>
-      <option value="smart">Smart Wear</option>
-      <option value="night">Nightwear</option>
-    </select>
+      <div class="form-box">
+        <label for="occasion">Occasion:</label>
+        <select id="occasion">
+          <option value="casual">Casual</option>
+          <option value="smart">Smart Wear</option>
+          <option value="night">Nightwear</option>
+        </select>
+      </div>
 
-    <label for="skintone">Skin Tone:</label>
-    <select id="skintone">
-      <option value="cool">Cool</option>
-      <option value="neutral">Neutral</option>
-      <option value="warm">Warm</option>
-    </select>
+      <div class="form-box">
+        <label for="skintone">Skin Tone:</label>
+        <select id="skintone">
+          <option value="cool">Cool</option>
+          <option value="neutral">Neutral</option>
+          <option value="warm">Warm</option>
+        </select>
+      </div>
 
-    <label for="hair">Hair Color:</label>
-    <select id="hair">
-      <option value="black">Black</option>
-      <option value="blonde">Blonde</option>
-      <option value="brown">Brown</option>
-      <option value="red">Red</option>
-      <option value="grey">Grey</option>
-    </select>
+      <div class="form-box">
+        <label for="hair">Hair Color:</label>
+        <select id="hair">
+          <option value="black">Black</option>
+          <option value="blonde">Blonde</option>
+          <option value="brown">Brown</option>
+          <option value="red">Red</option>
+          <option value="grey">Grey</option>
+        </select>
+      </div>
+    </div>
 
     <button onclick="generateStyle()">✨ Get Style Recommendation</button>
 
