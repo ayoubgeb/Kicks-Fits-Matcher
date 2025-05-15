@@ -6,163 +6,191 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
       padding: 20px;
-      background-color: #eef7fc;
     }
-    h2 {
+
+    h1 {
       text-align: center;
+      color: #333;
     }
-    .tool-wrapper {
-      max-width: 700px;
+
+    .matcher-container {
+      max-width: 900px;
       margin: auto;
-      background: white;
+      background: #ffffff;
       padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .form-section {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
+      margin-bottom: 20px;
     }
+
     .form-group {
-      flex: 1 1 calc(33.333% - 10px);
-      display: flex;
-      flex-direction: column;
+      flex: 1;
+      min-width: 250px;
     }
+
     label {
       font-weight: bold;
+      display: block;
       margin-bottom: 5px;
     }
-    input[type="text"],
-    select {
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background-color: #e0f0ff;
-    }
-    textarea {
+
+    select, input[type="text"], textarea {
       width: 100%;
-      height: 120px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
       padding: 10px;
-      background-color: #e0f0ff;
+      border: 1px solid #87cefa;
+      border-radius: 8px;
+      background-color: #e6f2ff;
+      box-sizing: border-box;
     }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
     button {
-      padding: 10px 20px;
+      padding: 10px 25px;
+      margin: 5px;
       border: none;
       border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
-      margin-right: 10px;
     }
-    .btn-save {
-      background-color: #007bff;
+
+    .btn-generate {
+      background-color: #4CAF50;
       color: white;
     }
+
     .btn-reset {
       background-color: #f44336;
       color: white;
     }
-    .output {
-      margin-top: 20px;
-      padding: 20px;
-      background-color: #d6f0ff;
-      border-left: 5px solid #007bff;
-      white-space: pre-wrap;
-      font-size: 1.1em;
-      border-radius: 8px;
-    }
-    .links {
+
+    .affiliate-links {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 30px;
     }
-    .links a {
+
+    .affiliate-links a {
       display: inline-block;
-      margin: 5px 10px;
-      color: #007bff;
+      margin: 10px;
+      padding: 12px 18px;
+      background-color: #1e90ff;
+      color: white;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .form-section {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="tool-wrapper">
-    <h2>🍅 Kicks & Fits Matcher</h2>
+  <div class="matcher-container">
+    <h1>👟 Kicks & Fits Matcher</h1>
 
     <!-- Sneaker Color -->
-    <div class="form-group" style="margin-bottom: 20px;">
+    <div class="form-group">
       <label for="sneakerColor">Sneaker Color</label>
-      <input type="text" id="sneakerColor" placeholder="e.g., Black with white soles">
+      <input type="text" id="sneakerColor" placeholder="e.g., White with red trim">
     </div>
 
-    <!-- Input Sections -->
+    <!-- Main Form Sections -->
     <div class="form-section">
+      <!-- Left Box -->
       <div class="form-group">
-        <label for="outfitOccasion">Outfit Occasion</label>
-        <select id="outfitOccasion">
+        <label for="occasion">Outfit Occasion</label>
+        <select id="occasion">
           <option value="">Select</option>
           <option>Casual</option>
           <option>Formal</option>
-          <option>Sporty</option>
+          <option>Sports</option>
           <option>Streetwear</option>
-          <option>Date Night</option>
-          <option>Outdoor</option>
           <option>Work</option>
-          <option>Travel</option>
-          <option>Chill</option>
+          <option>Gym</option>
           <option>Party</option>
+          <option>Date</option>
+          <option>Travel</option>
+          <option>Lounge</option>
         </select>
       </div>
+
+      <!-- Middle Box -->
       <div class="form-group">
-        <label for="preferredStyle">Preferred Style</label>
-        <select id="preferredStyle">
+        <label for="style">Preferred Style</label>
+        <select id="style">
           <option value="">Select</option>
           <option>Minimalist</option>
-          <option>Trendy</option>
-          <option>Retro</option>
-          <option>Luxury</option>
-          <option>Sporty</option>
+          <option>Vintage</option>
           <option>Boho</option>
-          <option>Grunge</option>
-          <option>Preppy</option>
-          <option>Business Casual</option>
           <option>Edgy</option>
+          <option>Sporty</option>
+          <option>Modern</option>
+          <option>Preppy</option>
+          <option>Grunge</option>
+          <option>Elegant</option>
+          <option>Classic</option>
         </select>
       </div>
+
+      <!-- Right Box -->
       <div class="form-group">
-        <label for="colorContrast">Color Contrast</label>
-        <select id="colorContrast">
+        <label for="contrast">Color Contrast</label>
+        <select id="contrast">
           <option value="">Select</option>
-          <option>Bold</option>
           <option>Neutral</option>
-          <option>Matching</option>
+          <option>Bold</option>
+          <option>Pastel</option>
           <option>Monochrome</option>
-          <option>High Contrast</option>
-          <option>Pastels</option>
-          <option>Earth Tones</option>
+          <option>Earth tones</option>
+          <option>Complementary</option>
+          <option>Warm</option>
+          <option>Cool</option>
           <option>Dark</option>
           <option>Bright</option>
-          <option>Muted</option>
         </select>
       </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="form-section">
       <div class="form-group">
-        <label for="clothingItem">Clothing Item</label>
+        <label for="clothingItem">Matching Clothing</label>
         <select id="clothingItem">
           <option value="">Select</option>
           <option>Jeans</option>
-          <option>Shorts</option>
           <option>Joggers</option>
-          <option>Dress Pants</option>
+          <option>Chinos</option>
           <option>Skirt</option>
+          <option>Shorts</option>
           <option>Blazer</option>
           <option>Hoodie</option>
-          <option>Crop Top</option>
-          <option>Leather Jacket</option>
-          <option>Oversized Tee</option>
+          <option>Tracksuit</option>
+          <option>Cardigan</option>
+          <option>Overalls</option>
         </select>
       </div>
+
       <div class="form-group">
         <label for="season">Season</label>
         <select id="season">
@@ -173,20 +201,21 @@
           <option>Winter</option>
         </select>
       </div>
+
       <div class="form-group">
         <label for="accessory">Accessory</label>
         <select id="accessory">
           <option value="">Select</option>
-          <option>Watch</option>
           <option>Cap</option>
-          <option>Necklace</option>
           <option>Sunglasses</option>
-          <option>Bracelet</option>
-          <option>Crossbody Bag</option>
-          <option>Rings</option>
+          <option>Watch</option>
+          <option>Bag</option>
+          <option>Necklace</option>
           <option>Scarf</option>
-          <option>Backpack</option>
-          <option>Beanie</option>
+          <option>Bracelet</option>
+          <option>Ring</option>
+          <option>Hair Clip</option>
+          <option>Gloves</option>
         </select>
       </div>
     </div>
@@ -198,40 +227,36 @@
     </div>
 
     <!-- Buttons -->
-    <button class="btn-save" onclick="generateSuggestion()">Generate</button>
-    <button class="btn-reset" onclick="resetForm()">Reset</button>
-
-    <!-- Output Area -->
-    <div class="output" id="outputArea"></div>
+    <div class="buttons">
+      <button class="btn-generate" onclick="generateSuggestion()">Generate Suggestion</button>
+      <button class="btn-reset" onclick="resetForm()">Reset</button>
+    </div>
 
     <!-- Affiliate Links -->
-    <div class="links">
-      <a href="https://direct.me/l/mLxP" target="_blank">Shop in Denmark</a>
-      <a href="https://amzn.to/453IyCL" target="_blank">Shop in USA</a>
+    <div class="affiliate-links">
+      <a href="https://direct.me/l/mLxP" target="_blank">🛍️ Shop in Denmark</a>
+      <a href="https://amzn.to/453IyCL" target="_blank">🛒 Shop in USA</a>
     </div>
   </div>
 
   <script>
     function generateSuggestion() {
-      const sneakerColor = document.getElementById('sneakerColor').value;
-      const occasion = document.getElementById('outfitOccasion').value;
-      const style = document.getElementById('preferredStyle').value;
-      const contrast = document.getElementById('colorContrast').value;
-      const clothing = document.getElementById('clothingItem').value;
-      const season = document.getElementById('season').value;
-      const accessory = document.getElementById('accessory').value;
+      const sneakerColor = document.getElementById("sneakerColor").value;
+      const occasion = document.getElementById("occasion").value;
+      const style = document.getElementById("style").value;
+      const contrast = document.getElementById("contrast").value;
+      const clothingItem = document.getElementById("clothingItem").value;
+      const season = document.getElementById("season").value;
+      const accessory = document.getElementById("accessory").value;
 
-      const suggestion = `Your ${sneakerColor} sneakers are ideal for a ${occasion.toLowerCase()} vibe. Match them with ${clothing} to channel a ${style.toLowerCase()} aesthetic. Aim for a ${contrast.toLowerCase()} palette to create harmony. Top it off with a ${accessory}—perfect for the ${season.toLowerCase()} season.`;
+      const suggestion = `Your ${sneakerColor} sneakers are a great choice for a ${occasion.toLowerCase()} look. Pair them with ${clothingItem.toLowerCase()} to match your ${style.toLowerCase()} style. Embrace a ${contrast.toLowerCase()} palette for harmony. Add a ${accessory.toLowerCase()} to polish the outfit. Best suited for the ${season.toLowerCase()} season.`;
 
-      document.getElementById('result').value = suggestion;
-      document.getElementById('outputArea').innerText = "Style Matched: \n" + suggestion;
+      document.getElementById("result").value = suggestion;
     }
 
     function resetForm() {
-      document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
-      document.getElementById('outputArea').innerText = '';
+      document.querySelectorAll("select, input, textarea").forEach(el => el.value = "");
     }
   </script>
-
 </body>
 </html>
